@@ -1,0 +1,42 @@
+[package]
+name = "ingestix"
+description = "Industrial-grade micro-framework for building high-throughput, observable data ingestion pipelines with zero boilerplate."
+categories = ["network-programming", "asynchronous", "data-structures"]
+keywords = ["ingestion", "metrics", "tokio", "observability", "pipeline"]
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+readme = "README.md"
+
+[features]
+default = ["metrics", "logging"]
+derive = ["dep:ingestix-derive"]
+ingestors = ["dep:tokio-util", "dep:futures"]
+logging = ["dep:tracing"]
+metrics = ["dep:metrics", "dep:metrics-exporter-prometheus", "dep:lazy_static"]
+full = ["derive", "ingestors", "metrics", "logging"]
+
+[dependencies]
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+tracing = { workspace = true, optional = true }
+async-trait.workspace = true
+ingestix-derive = { version = "0.1.0-alpha", path = "../ingestix-derive", optional = true }
+arc-swap = "1.7"
+axum = "0.8"
+futures = { workspace = true, optional = true }
+lazy_static = { version = "1.4", optional = true }
+metrics = { version = "0.24.3", optional = true }
+metrics-exporter-prometheus = { version = "0.18.1", default-features = false, optional = true }
+tokio-util = { version = "0.7", features = ["codec"], optional = true }
+subtle = "2.6"
+
+[dev-dependencies]
+libc = "0.2"
+serial_test = "3"

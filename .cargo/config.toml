@@ -1,0 +1,34 @@
+[alias]
+# --- Quality Control ---
+# Runs Clippy with all features and targets, treating warnings as errors
+checkall = "clippy --all-targets --all-features -- -D warnings"
+# Formats all crates in the workspace
+fmt_all = "fmt --all"
+# Checks if all code follows the formatting guidelines without applying changes
+fmt_check_all = "fmt --check --all"
+
+# --- Documentation ---
+# Generates documentation for the whole workspace including private items
+createdocs = "doc --all-features --workspace --no-deps --document-private-items"
+# Generates and immediately opens the documentation in your browser
+opendocs = "doc --all-features --workspace --no-deps --open"
+
+# --- Testing ---
+# Runs all tests across the entire workspace with all features enabled
+tall = "test --workspace --all-features"
+# Runs tests specifically for the main ingestix crate
+tflow = "test -p ingestix --all-features"
+# Runs the specific launch_shutdown integration test
+tshutdown = "test -p ingestix --test launch_shutdown"
+
+# --- Build Execution ---
+# Standard optimized release build
+buildrelease = "build --release"
+# Build focused on minimum binary size (uses the release-min-size profile)
+buildminified = "build --profile release-min-size"
+# Build with release optimizations but keeping debug symbols for profiling
+builddebug = "build --profile release-with-debug"
+
+# --- Utilities ---
+# Force a clean state and run a full check (useful if the compiler gets confused)
+refresh = ["clean", "checkall"]

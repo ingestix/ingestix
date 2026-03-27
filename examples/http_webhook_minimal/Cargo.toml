@@ -1,0 +1,13 @@
+[package]
+name = "http_webhook_minimal"
+version = "0.1.0"
+edition.workspace = true
+publish = false
+
+[dependencies]
+ingestix = { path = "../../ingestix-core", default-features = false, features = ["derive", "ingestors", "logging"] }
+anyhow.workspace = true
+tokio.workspace = true
+serde.workspace = true
+tracing.workspace = true
+tracing-subscriber = "0.3"

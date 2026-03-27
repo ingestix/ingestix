@@ -1,0 +1,21 @@
+[package]
+name = "ingestix-derive"
+description = "Custom derive macros for Ingestix to eliminate boilerplate and automate worker implementation."
+categories = ["development-tools::procedural-macros"]
+keywords = ["macros", "derive", "ingestix", "automation"]
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+readme = "README.md"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "2.0", features = ["full", "extra-traits"] }
+quote = "1.0"
+proc-macro2 = "1.0"

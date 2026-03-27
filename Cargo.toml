@@ -1,0 +1,67 @@
+[workspace]
+members = [
+    "ingestix-core",
+    "ingestix-derive",
+    "examples/udp_basic",
+    "examples/http_webhook",
+    "examples/http_webhook_minimal",
+    "examples/http_webhook_generic_json",
+    "examples/http_webhook_advanced",
+    "examples/http_webhook_with_state",
+]
+default-members = ["examples/http_webhook_minimal"]
+resolver = "2"
+
+[workspace.package]
+authors = ["Magnus Karlsson <makarlsso@ioop.se"]
+edition = "2024"
+version = "0.1.0-alpha"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/ingestix/ingestix"
+homepage = "https://ingestix.github.io"
+documentation = "https://docs.rs/ingestix"
+readme = "README.md"
+
+[workspace.dependencies]
+tokio = { version = "1.36", features = ["full", "signal", "tracing"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+tracing = "0.1"
+async-trait = "0.1"
+futures = { version = "0.3", default-features = false, features = ["std"] }
+
+# Optimization profiles for speed and release builds
+[profile.dev]
+opt-level = 0
+debug = true
+split-debuginfo = "unpacked"
+overflow-checks = true
+
+[profile.release]
+opt-level = 3
+debug = "line-tables-only"
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+overflow-checks = false
+
+# Fast development builds
+[profile.dev-fast]
+inherits = "dev"
+opt-level = 1
+debug = true
+split-debuginfo = "unpacked"
+
+# Optimized release builds with symbols for profiling
+[profile.release-with-debug]
+inherits = "release"
+debug = true
+strip = "none"
+
+# Minimum binary size for production (opt-level "z" prioritises size over speed)
+[profile.release-min-size]
+inherits = "release"
+opt-level = "z"
+lto = "fat"
+codegen-units = 1

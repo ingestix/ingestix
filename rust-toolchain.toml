@@ -1,0 +1,14 @@
+[toolchain]
+# We use the stable channel to ensure reliability for Ingestix
+channel = "stable"
+
+# Ensure we have the necessary components for a great dev experience
+components = [
+    "rustfmt",   # For consistent code styling
+    "clippy",    # For industrial-grade linting
+    "rust-analyzer" # Language server support
+]
+
+# Optional: You can specify a minimum version if you want to be extra safe
+# Since it's 2026, version 1.85+ is standard for Edition 2024
+# min_version = "1.85.0"
