@@ -3,19 +3,20 @@ members = [
     "ingestix-core",
     "ingestix-derive",
     "examples/udp_basic",
+    "examples/syslog_basic",
     "examples/http_webhook",
     "examples/http_webhook_minimal",
     "examples/http_webhook_generic_json",
     "examples/http_webhook_advanced",
     "examples/http_webhook_with_state",
 ]
-default-members = ["examples/http_webhook_minimal"]
+default-members = ["examples/syslog_basic"]
 resolver = "2"
 
 [workspace.package]
 authors = ["Magnus Karlsson <makarlsso@ioop.se"]
 edition = "2024"
-version = "0.1.0-alpha"
+version = "0.1.1-alpha.1"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/ingestix/ingestix"
 homepage = "https://ingestix.github.io"

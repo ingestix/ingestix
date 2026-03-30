@@ -45,6 +45,8 @@ pub mod http;
 pub mod tcp;
 #[cfg(feature = "ingestors")]
 pub mod udp;
+#[cfg(feature = "ingestors")]
+pub mod syslog;
 
 #[cfg(feature = "ingestors")]
 pub use http::{ApiKeyConfig, HttpConfig, HttpIngestor, HttpQueuePolicy};
@@ -52,6 +54,10 @@ pub use http::{ApiKeyConfig, HttpConfig, HttpIngestor, HttpQueuePolicy};
 pub use tcp::{TcpConfig, TcpIngestor};
 #[cfg(feature = "ingestors")]
 pub use udp::{UdpConfig, UdpIngestor};
+#[cfg(feature = "ingestors")]
+pub use syslog::{
+    SyslogConfig, SyslogEvent, SyslogIngestor, SyslogProtocol, SyslogStructuredDataElement,
+};
 
 #[cfg(feature = "logging")]
 #[allow(unused_macros)]
@@ -178,6 +184,10 @@ pub const CURRENT_QUEUE: FlowGaugeName = FlowGaugeName("flow_queue_depth");
 /// Messages rejected due to invalid JSON decoding.
 pub const REJECTED_INVALID_JSON: FlowCounterName =
     FlowCounterName("flow_rejected_invalid_json_total");
+
+/// Messages rejected due to invalid / unparsable syslog formatting.
+pub const REJECTED_INVALID_SYSLOG: FlowCounterName =
+    FlowCounterName("flow_rejected_invalid_syslog_total");
 
 /// Requests rejected because an API key / token didn't match.
 pub const REJECTED_INVALID_API_KEY: FlowCounterName =
