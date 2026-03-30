@@ -39,8 +39,11 @@ pub struct SyslogStructuredDataElement {
     pub params: Vec<(String, String)>,
 }
 
-#[derive(Clone, Debug)]
 /// Syslog ingestion tuning knobs.
+///
+/// Use with [`SyslogIngestor::with_config`] for explicit behavior, or rely on
+/// [`Default`] via [`SyslogIngestor::new`] for minimal setup.
+#[derive(Clone, Debug)]
 pub struct SyslogConfig {
     /// Maximum datagram payload size accepted for parsing.
     ///
@@ -65,6 +68,10 @@ impl Default for SyslogConfig {
 
 /// UDP ingestor that receives syslog lines, parses them, and forwards decoded
 /// events into Ingestix.
+///
+/// The ingestor is configured with:
+/// - `max_datagram_size` to cap accepted payload size per datagram,
+/// - `recv_buffer_size` to size the internal UDP receive buffer.
 pub struct SyslogIngestor {
     /// Socket address to bind for the UDP server.
     pub addr: std::net::SocketAddr,

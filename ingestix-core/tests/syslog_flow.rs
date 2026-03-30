@@ -44,7 +44,8 @@ async fn syslog_ingestor_processes_valid_datagrams() {
     let launch_task = tokio::spawn(async move { runner.launch(ingestor, worker).await });
 
     // Give ingestor a brief moment to bind the socket.
-    sleep(Duration::from_millis(80)).await;
+    // Slightly conservative to reduce flakiness on slower CI.
+    sleep(Duration::from_millis(150)).await;
 
     let sender = UdpSocket::bind(("127.0.0.1", 0))
         .await
