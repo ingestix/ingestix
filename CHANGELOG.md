@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.1-alpha.1] - 2026-03-30
+
+### Added
+- **Syslog ingestion:** Introduced basic Syslog ingestion support in `ingestix-core`, including UDP/TCP handling and shutdown-aware flow control.
+- **Examples:** Added a `syslog_basic` example demonstrating end-to-end Syslog ingestion.
+
+### Changed
+- **Documentation:** Updated READMEs and project metadata to reference version `0.1.1-alpha.1`.
+
+### Fixed
+
+---
+
 ## [0.1.0-alpha] - 2026-03-26
 
 ### Added

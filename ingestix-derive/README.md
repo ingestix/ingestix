@@ -12,7 +12,7 @@ To use these macros, simply add the main `ingestix` crate to your `Cargo.toml` w
 
 ```toml
 [dependencies]
-ingestix = { version = "0.1.0-alpha", features = ["derive"] }
+ingestix = { version = "0.1.1-alpha.1", features = ["derive"] }
 ```
 
 ## Documentation

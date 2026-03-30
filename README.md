@@ -13,12 +13,12 @@
 [![Build Status](https://github.com/ingestix/ingestix/actions/workflows/ci.yml/badge.svg)](https://github.com/ingestix/ingestix/actions/workflows/ci.yml)
 [![Crates.io Version](https://img.shields.io/crates/v/ingestix.svg)](https://crates.io/crates/ingestix)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE-MIT)
-![Version](https://img.shields.io/badge/version-0.1.0--alpha-blue)
+![Version](https://img.shields.io/badge/version-0.1.1--alpha.1-blue)
 ![Rust](https://img.shields.io/badge/rust-1.75%2B-brown?logo=rust)
 
 </div>
 
-> ⚠️ **Pre-release Notice:** Ingestix is currently in very early development (**v0.1.0-alpha**). While functional, it is under active evolution. Please expect breaking changes as the API is refined. Use in production at your own discretion, and early adopters are warmly welcome to join the effort in shaping the future of Ingestix! 🚀
+> ⚠️ **Pre-release Notice:** Ingestix is currently in very early development (**v0.1.1-alpha.1**). While functional, it is under active evolution. Please expect breaking changes as the API is refined. Use in production at your own discretion, and early adopters are warmly welcome to join the effort in shaping the future of Ingestix! 🚀
 
 # Ingestix
 
@@ -83,7 +83,7 @@ Add `ingestix` to your `Cargo.toml`. The `full` feature enables everything neede
 
 ```toml
 [dependencies]
-ingestix = { version = "0.1.0-alpha", features = ["full"] }
+ingestix = { version = "0.1.1-alpha.1", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }
 tokio = { version = "1.0", features = ["full"] }
 ```
