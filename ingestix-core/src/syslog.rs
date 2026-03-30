@@ -252,4 +252,3 @@ mod tests {
         assert_eq!(ev.message, "hello world");
     }
 }
-

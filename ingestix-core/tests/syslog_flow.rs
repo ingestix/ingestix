@@ -2,10 +2,7 @@
 
 use ingestix::{Ingestix, SharedContext, SyslogEvent, SyslogIngestor, SyslogProtocol, Worker};
 use serial_test::serial;
-use std::sync::{
-    Arc,
-    Mutex,
-};
+use std::sync::{Arc, Mutex};
 use tokio::net::UdpSocket;
 use tokio::time::{Duration, sleep, timeout};
 
@@ -80,8 +77,7 @@ async fn syslog_ingestor_processes_valid_datagrams() {
 
     let snapshot = events.lock().unwrap().clone();
     let has_rfc3164 = snapshot.iter().any(|ev| {
-        matches!(ev.protocol, SyslogProtocol::RFC3164)
-            && ev.message.contains("hello rfc3164")
+        matches!(ev.protocol, SyslogProtocol::RFC3164) && ev.message.contains("hello rfc3164")
     });
     let has_rfc5424 = snapshot.iter().any(|ev| {
         matches!(ev.protocol, SyslogProtocol::RFC5424 { .. })
@@ -104,4 +100,3 @@ async fn syslog_ingestor_processes_valid_datagrams() {
         "launch returned error after SIGTERM: {launch_result:?}"
     );
 }
-

@@ -19,7 +19,7 @@ edition = "2024"
 version = "0.1.1-alpha.1"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/ingestix/ingestix"
-homepage = "https://ingestix.github.io"
+homepage = "https://ingestix.org"
 documentation = "https://docs.rs/ingestix"
 readme = "README.md"
 

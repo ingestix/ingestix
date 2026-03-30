@@ -63,4 +63,3 @@ async fn launch_exits_with_udp_backpressure_after_sigterm() {
         "launch returned error after SIGTERM: {launch_result:?}"
     );
 }
-

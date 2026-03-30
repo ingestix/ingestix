@@ -42,22 +42,22 @@ pub use ingestix_derive::FlowWorker;
 #[cfg(feature = "ingestors")]
 pub mod http;
 #[cfg(feature = "ingestors")]
+pub mod syslog;
+#[cfg(feature = "ingestors")]
 pub mod tcp;
 #[cfg(feature = "ingestors")]
 pub mod udp;
-#[cfg(feature = "ingestors")]
-pub mod syslog;
 
 #[cfg(feature = "ingestors")]
 pub use http::{ApiKeyConfig, HttpConfig, HttpIngestor, HttpQueuePolicy};
 #[cfg(feature = "ingestors")]
-pub use tcp::{TcpConfig, TcpIngestor};
-#[cfg(feature = "ingestors")]
-pub use udp::{UdpConfig, UdpIngestor};
-#[cfg(feature = "ingestors")]
 pub use syslog::{
     SyslogConfig, SyslogEvent, SyslogIngestor, SyslogProtocol, SyslogStructuredDataElement,
 };
+#[cfg(feature = "ingestors")]
+pub use tcp::{TcpConfig, TcpIngestor};
+#[cfg(feature = "ingestors")]
+pub use udp::{UdpConfig, UdpIngestor};
 
 #[cfg(feature = "logging")]
 #[allow(unused_macros)]
